@@ -27,10 +27,10 @@ h1{
 body{
     min-width: 100vw;
     max-width: 100%;
-min-height: 100vh;
+    min-height: 100vh;
     display: flex;
-   flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
     background:url('./images/pizza.jpg');
     justify-content: space-between;
     padding: 0;
@@ -41,7 +41,6 @@ min-height: 100vh;
 
 #main{
     display: flex;
-
     flex-direction: column;
     align-items: center;
 }
@@ -55,12 +54,12 @@ nav{
 
 
 button{
-background-color: transparent;
-color: white;
+    background-color: transparent;
+    color: white;
     font-family: 'Parisienne', cursive;
     font-size: 35px;
     border: 0;
- padding: 20px;
+    padding: 20px;
 }
 
 footer{
@@ -106,4 +105,29 @@ footer{
     border-radius: 15px;
 }
 
+.menu-item{
+background-color: black;
+border:4px double white;
+border-radius: 10px ;
+margin:20px;
+white-space: nowrap;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+text-align: left;
+}
+
+.menu-image{
+    width:150px;
+    height:150px;
+    padding: 5px;   
+    border-radius: 10px;
+}
+
+.name-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
