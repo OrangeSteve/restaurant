@@ -8,11 +8,12 @@ const heading = document.createElement(`h1`);
 const nav =document.createElement(`nav`);
 
 const homeButton=document.createElement(`button`);
-homeButton.textContent="Home"
+homeButton.textContent="Home";
+homeButton.classList.add(`active-menu`);
 const menuButton=document.createElement(`button`);
-menuButton.textContent="Menu"
+menuButton.textContent="Menu";
 const aboutUsButton=document.createElement(`button`);
-aboutUsButton.textContent="About Us"
+aboutUsButton.textContent="About Us";
 heading.textContent="The Restaurant";
 
 nav.appendChild(homeButton);
