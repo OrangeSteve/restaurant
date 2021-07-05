@@ -1,10 +1,20 @@
 import pageLoad from './pageLoad';
 import aboutUs from './aboutUs';
+import menu from './menu';
 import './styles.css';
 
 
 
 const page = (() => {
+const mainContent=document.createElement(`div`);
+mainContent.setAttribute("id","main");
+
+const footer=document.createElement(`footer`);
+footer.textContent="The greatest restaurant on Planet Earth!!!";
+
+const header=document.createElement(`header`);
+
+
     const heading =document.createElement(`h1`);
     heading.textContent="The Restaurant";
     const nBar = document.createElement(`nav`);
@@ -15,40 +25,69 @@ const page = (() => {
     homeButton.addEventListener(`click`, () => {
         if (_nBarIndex != 0) {
             _selectContent(0);
+            document.querySelector(`.active-menu`).classList.remove(`active-menu`);
+            homeButton.classList.add(`active-menu`);
+            
         }
 
     });
     const menuButton = document.createElement(`button`);
     menuButton.textContent = "Menu";
-    const aboutUsButton = document.createElement(`button`);
-    aboutUsButton.textContent = "About Us";
-    aboutUsButton.addEventListener(`click`, () => {
-        if (_nBarIndex != 2) {
-            _selectContent(2);
+   menuButton.addEventListener(`click`, () => {
+        if (_nBarIndex != 1) {
+            _selectContent(1);
+            document.querySelector(`.active-menu`).classList.remove(`active-menu`);
+            menuButton.classList.add(`active-menu`);
         }
 
     });
-    document.body.appendChild(heading);
+    const aboutUsButton = document.createElement(`button`);
+    aboutUsButton.textContent = "Contact";
+    aboutUsButton.addEventListener(`click`, () => {
+        if (_nBarIndex != 2) {
+            _selectContent(2);
+            document.querySelector(`.active-menu`).classList.remove(`active-menu`);
+            aboutUsButton.classList.add(`active-menu`);
+        }
+
+    });
+
+document.body.appendChild(header);
+
+    header.appendChild(heading);
     nBar.appendChild(homeButton);
     nBar.appendChild(menuButton);
     nBar.appendChild(aboutUsButton);
-    document.body.appendChild(nBar);
+    header.appendChild(nBar);
 
+
+
+    document.body.appendChild(mainContent);
     const content = document.createElement('div');
     content.setAttribute("id", "content");
-    document.body.appendChild(content);
+    mainContent.appendChild(content);
 
     _selectContent(0);
+    document.body.appendChild(footer);
 
     function _selectContent(index) {
 
+        _clearContent();
         switch (index) {
 
-            case 0: _nBarIndex=pageLoad(); break;
-            case 1: break;
-            case 2: _nBarIndex=aboutUs(); break;
+            case 0: _nBarIndex=pageLoad(content); break;
+            case 1: _nBarIndex=menu(content);break;
+            case 2: _nBarIndex=aboutUs(content); break;
         }
 
+    }
+
+
+    function _clearContent(){
+
+        while (content.firstChild) {
+            content.removeChild(content.firstChild);
+        }
     }
 
     return {}

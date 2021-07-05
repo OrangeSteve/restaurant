@@ -5,7 +5,8 @@ module.exports = {
     entry: {
         index: './src/index.js',
         pageLoad: './src/pageLoad.js',
-        aboutUs:'./src/aboutUs.js'
+        aboutUs:'./src/aboutUs.js',
+        menu:'./src/menu.js'
     },
     devtool: 'inline-source-map',
     devServer: {
